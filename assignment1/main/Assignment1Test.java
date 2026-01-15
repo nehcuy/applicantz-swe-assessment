@@ -53,6 +53,9 @@ public class Assignment1Test {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test case with mix of characters and numbers
+     */
     @Test
     public void inputTestCharAndNum() {
         String expected = "321cba";
