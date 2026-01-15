@@ -38,6 +38,7 @@ def update_build_version(filepath: Path, lines_to_update: list[str], build_num: 
     :param lines_to_update: List of regex patterns to identify lines to be updated
     :param build_num: Build number to be replaced with in the file
     """
+    os.chmod(filepath, 0o755)
     with open(filepath, 'r') as fin, NamedTemporaryFile('w', delete=False) as fout:
         for line in fin:
             if any(re.search(pattern, line) for pattern in lines_to_update):
@@ -47,7 +48,7 @@ def update_build_version(filepath: Path, lines_to_update: list[str], build_num: 
     os.replace(fout.name, filepath)
 
 
-def main():
+def main() -> None:
     sconstruct_filepath = os.path.join(get_src_path_from_env(), Path("develop/global/src/SConstruct"))
     version_filepath = os.path.join(get_src_path_from_env(), Path("develop/global/src/VERSION"))
     build_num = get_build_num_from_env()
