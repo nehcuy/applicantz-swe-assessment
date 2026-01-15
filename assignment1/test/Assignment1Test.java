@@ -1,5 +1,6 @@
-package assignment1.main;
+package test;
 
+import src.Assignment1;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

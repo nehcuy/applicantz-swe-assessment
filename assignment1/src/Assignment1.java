@@ -1,4 +1,5 @@
-package assignment1.main;
+package src;
+
 import java.lang.StringBuilder;
 
 /**
